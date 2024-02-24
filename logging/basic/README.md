@@ -23,3 +23,13 @@
 - 로직 처리 중 예외가 발생하기에 `postHandle` 는 실행되지 않습니다.
 - 하지만 그 직후 또 한번 사이클이 돌아가는 이유는
     - 명시적인 예외 처리를 하지 않았기에 `BasicErrorController` 가 호출되기 때문 입니다.
+
+## step 2. add RestControllerAdvice
+
+### `run exception` api 실행시
+
+> preHandle -> error! handled -> afterCompletion
+
+- `RestControllerAdvice` 에서 handling 되기에 `BasicErrorController` 가 호출되지 않습니다.
+- api 호출에 대한 예외 처리를 한 곳에서 할 수 있습니다.
+- 응답을 표준화할 수 있습니다. `ErrorResponse` 
