@@ -48,3 +48,10 @@
 
 - `Mapped Diagnostic Context` 는 같은 thread 내에서만 공유됩니다.
 - traceId 등을 로깅할 수 있습니다.
+
+## step 5. measure response duration
+
+- filter 를 통해 request 단위의 측정이 가능 합니다.
+  - 필요에 따라 slow api 를 감지할 수도 있습니다.
+- 더 표준적인 방법은 metrics 를 활용하는 것 입니다.
+  - [Metrics for Your Spring REST API](https://www.baeldung.com/spring-rest-api-metrics)
