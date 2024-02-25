@@ -17,7 +17,7 @@ class ApiControllerAdvice {
     @ExceptionHandler(IllegalArgumentException::class)
     fun handleIllegalArgumentException(e: IllegalArgumentException, request: HttpServletRequest): ErrorResponse {
         return ErrorResponse(code = "400", message = e.message).also {
-            errorLogging(e)
+            errorLogging(e, request)
         }
     }
 
@@ -25,7 +25,7 @@ class ApiControllerAdvice {
     @ExceptionHandler(IllegalStateException::class)
     fun handleIllegalStateException(e: IllegalStateException, request: HttpServletRequest): ErrorResponse {
         return ErrorResponse(code = "400", message = e.message).also {
-            errorLogging(e)
+            errorLogging(e, request)
         }
     }
 
@@ -33,14 +33,21 @@ class ApiControllerAdvice {
     @ExceptionHandler(Exception::class)
     fun handleException(e: Exception, request: HttpServletRequest): ErrorResponse {
         return ErrorResponse(code = "500", message = e.message).also {
-            errorLogging(e)
+            errorLogging(e, request)
         }
     }
 
     /**
      * 표준 예외 응답과 별개로 also 절을 통한 호출로 로깅 처리
      */
-    private fun errorLogging(e: Exception) {
+    private fun errorLogging(e: Exception, request: HttpServletRequest) {
+        val httpRequestMessage = request.run {
+            "uri=${requestURI}, " +
+                "headers=${headerNames.toList().associateWith { getHeader(it) }}, " +
+                "params=${parameterMap.mapValues { it.value.toList() }}, " +
+                "body=${reader.readText()}"
+        }
+        log.error(httpRequestMessage)
         log.error("handle ${e.javaClass.simpleName}", e)
     }
 }

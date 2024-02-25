@@ -8,7 +8,7 @@ import org.springframework.web.servlet.HandlerInterceptor
 import org.springframework.web.servlet.ModelAndView
 
 class LoggingInterceptor: HandlerInterceptor {
-    private val log: Logger = LoggerFactory.getLogger(LoggingInterceptor::class.java)
+    private val log: Logger = LoggerFactory.getLogger(this::class.java)
 
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
         log.info("### preHandle")

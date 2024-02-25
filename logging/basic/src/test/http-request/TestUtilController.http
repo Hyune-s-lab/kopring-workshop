@@ -9,7 +9,7 @@ x-user-id: x-test-id
 }
 
 ### run logging
-POST {{host}}/test-util/run-logging?level=INFO&extra1=hihihi
+POST {{host}}/test-util/run-logging?level=ERROR&extra1=hihihi
 Content-Type: application/json
 x-user-id: x-test-id
 
