@@ -61,3 +61,27 @@
 - `prod` INFO_JSON_APPENDER
 - `dev` INFO_JSON_APPENDER
 - `local` ALL_CONSOLE_APPENDER
+
+## step 3. add error appender with JsonLayout
+
+- 별도의 pattern 없이도 json 형태의 log 를 출력할 수 있습니다.
+
+```json
+{
+  "timestamp": "2024-02-25T23:40:12.696",
+  "level": "ERROR",
+  "thread": "http-nio-8080-exec-1",
+  "logger": "com.example.kopringworkshop.logback.support.ApiControllerAdvice",
+  "message": "...",
+  "context": "logging-logback"
+}
+```
+
+- JsonLayout 을 사용하기 위해서는 dependency 추가가 필요 합니다.
+
+``` 
+// logback
+val logbackVersion: String by project
+implementation("ch.qos.logback.contrib:logback-json-classic:${logbackVersion}")
+implementation("ch.qos.logback.contrib:logback-jackson:${logbackVersion}") 
+```

@@ -4,6 +4,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+    // logback
+    val logbackVersion: String by project
+    implementation("ch.qos.logback.contrib:logback-json-classic:${logbackVersion}")
+    implementation("ch.qos.logback.contrib:logback-jackson:${logbackVersion}")
+
     // springdoc
     val springdocOpenapi: String by project
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocOpenapi}")

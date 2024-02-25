@@ -29,6 +29,19 @@
         </encoder>
     </appender>
 
+    <appender name="ERROR_JSON_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter"/>
+            <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSS</timestampFormat>
+            <appendLineSeparator>true</appendLineSeparator>
+        </layout>
+    </appender>
+
     <appender name="ALL_CONSOLE_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
         <encoder charset="UTF-8">
             <pattern>${ALL_CONSOLE_PATTERN}</pattern>
@@ -40,9 +53,11 @@
     <root level="INFO">
         <springProfile name="prod">
             <appender-ref ref="INFO_JSON_APPENDER"/>
+            <appender-ref ref="ERROR_JSON_APPENDER"/>
         </springProfile>
         <springProfile name="dev">
             <appender-ref ref="INFO_JSON_APPENDER"/>
+            <appender-ref ref="ERROR_JSON_APPENDER"/>
         </springProfile>
         <springProfile name="local">
             <appender-ref ref="ALL_CONSOLE_APPENDER"/>
