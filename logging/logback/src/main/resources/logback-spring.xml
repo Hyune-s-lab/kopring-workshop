@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <!--    define `spring property, reserved property`-->
+    <springProperty name="ENV" source="spring.profiles.active"/>
+
+    <springProperty name="CONTEXT_NAME" source="spring.application.name"/>
+    <contextName>${CONTEXT_NAME}</contextName>
+
+
+    <!--    define `pattern` as `property`-->
+    <property name="INFO_JSON_PATTERN"
+              value='{"env": "${ENV:-}", "level": "%clr(%level){red}", "service": "%contextName", "appender_info": {"thread": "%thread{30}","logger": "%logger{100}","message": "%msg"}}%n'/>
+
+    <property name="ALL_CONSOLE_PATTERN"
+              value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+
+
+    <!--    set `appender` with properties similar to `encoder`-->
+    <appender name="INFO_JSON_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder charset="UTF-8">
+            <pattern>${INFO_JSON_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ALL_CONSOLE_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="UTF-8">
+            <pattern>${ALL_CONSOLE_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+
+    <!--    injection appender-->
+    <root level="INFO">
+        <springProfile name="prod">
+            <appender-ref ref="INFO_JSON_APPENDER"/>
+        </springProfile>
+        <springProfile name="dev">
+            <appender-ref ref="INFO_JSON_APPENDER"/>
+        </springProfile>
+        <springProfile name="local">
+            <appender-ref ref="ALL_CONSOLE_APPENDER"/>
+        </springProfile>
+    </root>
+</configuration>
