@@ -17,7 +17,7 @@
 - `preHandle -> postHandle -> afterCompletion` 과정을 통해 로깅을 할 수 있습니다.
 - request, response 접근도 가능 합니다.
 
-### `run exception` api 실행시
+### call RunException api
 
 > preHandle -> afterCompletion -> error!  
 > -> preHandle -> postHandle -> afterCompletion
@@ -28,7 +28,7 @@
 
 ## step 2. add RestControllerAdvice
 
-### `run exception` api 실행시
+### call RunException api
 
 > preHandle -> error! handled -> afterCompletion
 
@@ -57,3 +57,16 @@
     - 필요에 따라 slow api 를 감지할 수도 있습니다.
 - 더 표준적인 방법은 metrics 를 활용하는 것 입니다.
     - [Metrics for Your Spring REST API](https://www.baeldung.com/spring-rest-api-metrics)
+
+## step 6. using MDC with async
+
+> - [@Async 비동기 멀티스레드 사용법](https://cano721.tistory.com/208)
+> - [Creating Asynchronous Methods
+    ](https://spring.io/guides/gs/async-method)
+
+### call RunException api - async 만 설정
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/b88dc8e6-3d6b-412f-9ca6-855dbbf76565)
+
+- 실무에서는 async 전용 thread pool 을 설정하는 것을 권장 합니다.
+    - default `SimpleAsyncTaskExecutor`
