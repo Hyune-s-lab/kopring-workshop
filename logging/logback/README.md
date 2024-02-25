@@ -85,3 +85,25 @@ val logbackVersion: String by project
 implementation("ch.qos.logback.contrib:logback-json-classic:${logbackVersion}")
 implementation("ch.qos.logback.contrib:logback-jackson:${logbackVersion}") 
 ```
+
+## step 4. using MDC 
+
+- JsonLayout 은 MDC 에 들어있는 정보를 자동으로 읽어옵니다.
+    - MDC 에 json object 를 쉽게 넣기 위해 `kotlinx-serialization` 을 활용 했습니다.
+
+```json
+{
+  "timestamp": "2024-02-25T23:51:09.480",
+  "level": "ERROR",
+  "thread": "http-nio-8080-exec-1",
+  "mdc": {
+    "request": "..."
+  },
+  "logger": "com.example.kopringworkshop.logback.support.ApiControllerAdvice",
+  "message": "handle RuntimeException",
+  "context": "logging-logback",
+  "exception": "..."
+}
+```
+
+

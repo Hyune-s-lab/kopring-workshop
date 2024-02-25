@@ -7,6 +7,8 @@ plugins {
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
     kotlin("kapt") version "1.9.22"
+
+    kotlin("plugin.serialization") version "1.9.22"
 }
 
 java {
@@ -33,10 +35,16 @@ subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "kotlin-spring")
 
+    apply(plugin = "kotlinx-serialization")
+
     dependencies {
         implementation("org.springframework.boot:spring-boot-starter")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+        val kotlinxSerializationVersion: String by project
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${kotlinxSerializationVersion}")
+
         testImplementation("org.springframework.boot:spring-boot-starter-test")
 
         annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")

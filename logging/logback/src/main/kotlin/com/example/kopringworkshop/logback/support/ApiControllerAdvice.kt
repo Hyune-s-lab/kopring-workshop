@@ -1,8 +1,12 @@
 package com.example.kopringworkshop.logback.support
 
 import jakarta.servlet.http.HttpServletRequest
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.slf4j.MDC
 import org.springframework.http.HttpStatus.BAD_REQUEST
 import org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -17,7 +21,7 @@ class ApiControllerAdvice {
     @ExceptionHandler(IllegalArgumentException::class)
     fun handleIllegalArgumentException(e: IllegalArgumentException, request: HttpServletRequest): ErrorResponse {
         return ErrorResponse(code = "400", message = e.message).also {
-            errorLogging(e, request)
+            errorLogging(e, request.toMDCDto())
         }
     }
 
@@ -25,7 +29,7 @@ class ApiControllerAdvice {
     @ExceptionHandler(IllegalStateException::class)
     fun handleIllegalStateException(e: IllegalStateException, request: HttpServletRequest): ErrorResponse {
         return ErrorResponse(code = "400", message = e.message).also {
-            errorLogging(e, request)
+            errorLogging(e, request.toMDCDto())
         }
     }
 
@@ -33,21 +37,29 @@ class ApiControllerAdvice {
     @ExceptionHandler(Exception::class)
     fun handleException(e: Exception, request: HttpServletRequest): ErrorResponse {
         return ErrorResponse(code = "500", message = e.message).also {
-            errorLogging(e, request)
+            errorLogging(e, request.toMDCDto())
         }
     }
 
-    /**
-     * 표준 예외 응답과 별개로 also 절을 통한 호출로 로깅 처리
-     */
-    private fun errorLogging(e: Exception, request: HttpServletRequest) {
-        val httpRequestMessage = request.run {
-            "uri=${requestURI}, " +
-                "headers=${headerNames.toList().associateWith { getHeader(it) }}, " +
-                "params=${parameterMap.mapValues { it.value.toList() }}, " +
-                "body=${reader.readText()}"
-        }
-        log.error(httpRequestMessage)
+    private fun errorLogging(e: Exception, request: HttpRequestForMDC) {
+        MDC.put("request", Json.encodeToString(request))
         log.error("handle ${e.javaClass.simpleName}", e)
     }
+
+    private fun HttpServletRequest.toMDCDto(): HttpRequestForMDC {
+        return HttpRequestForMDC(
+            uri = this.requestURI,
+            headers = this.headerNames.toList().associateWith { this.getHeader(it) },
+            params = this.parameterMap.mapValues { it.value.toList() },
+            body = this.inputStream.bufferedReader().use { it.readText() }
+        )
+    }
+
+    @Serializable
+    private data class HttpRequestForMDC(
+        val uri: String,
+        val headers: Map<String, String>,
+        val params: Map<String, List<String>>,
+        val body: String,
+    )
 }
