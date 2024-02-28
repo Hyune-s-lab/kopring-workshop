@@ -1,5 +1,7 @@
 # logging-basic
 
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/d779ab3c-da30-4035-8579-8d90e46d8902)
+
 ### how to run?
 
 - http://localhost:8080/swagger-ui/index.html#/
@@ -32,7 +34,7 @@
 
 - `RestControllerAdvice` 에서 handling 되기에 `BasicErrorController` 가 호출되지 않습니다.
 - api 호출에 대한 예외 처리를 한 곳에서 할 수 있습니다.
-- 응답을 표준화할 수 있습니다. `ErrorResponse` 
+- 응답을 표준화할 수 있습니다. `ErrorResponse`
 
 ## step 3. handle request body
 
@@ -41,7 +43,7 @@
 > - [Reading HttpServletRequest Multiple Times in Spring](https://www.baeldung.com/spring-reading-httpservletrequest-multiple-times)
 
 - `HttpServletRequest` 의 body 는 한번 읽으면 더 이상 읽을 수 없습니다.
-  - uri, method, header 는 여러번 읽을 수 있습니다.
+    - uri, method, header 는 여러번 읽을 수 있습니다.
 - body 는 길이가 클 수 있음으로 예외가 발생했을 때만 logging 하는 것을 권장 합니다.
 
 ## step 4. using MDC
@@ -52,6 +54,6 @@
 ## step 5. measure response duration
 
 - filter 를 통해 request 단위의 측정이 가능 합니다.
-  - 필요에 따라 slow api 를 감지할 수도 있습니다.
+    - 필요에 따라 slow api 를 감지할 수도 있습니다.
 - 더 표준적인 방법은 metrics 를 활용하는 것 입니다.
-  - [Metrics for Your Spring REST API](https://www.baeldung.com/spring-rest-api-metrics)
+    - [Metrics for Your Spring REST API](https://www.baeldung.com/spring-rest-api-metrics)
