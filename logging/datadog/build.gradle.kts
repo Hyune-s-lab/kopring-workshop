@@ -10,6 +10,9 @@ dependencies {
 
     val springdocOpenapi: String by project
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocOpenapi}")
+
+    val datadogApiVersion: String by project
+    implementation("com.datadoghq:dd-trace-api:${datadogApiVersion}")
 }
 
 tasks.getByName("bootJar") {

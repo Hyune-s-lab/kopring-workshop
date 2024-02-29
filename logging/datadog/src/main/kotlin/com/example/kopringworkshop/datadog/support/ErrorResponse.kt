@@ -2,7 +2,7 @@ package com.example.kopringworkshop.datadog.support
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonInclude
-import org.slf4j.MDC
+import datadog.trace.api.CorrelationIdentifier
 import java.time.ZonedDateTime
 
 /**
@@ -16,5 +16,5 @@ data class ErrorResponse(
 ) {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
     val timestamp: ZonedDateTime = ZonedDateTime.now()
-    val traceId: String = MDC.get("traceId") ?: "no-traceId"
+    val traceId: String = CorrelationIdentifier.getTraceId() ?: "no-traceId"
 }

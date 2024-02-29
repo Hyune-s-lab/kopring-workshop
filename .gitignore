@@ -142,4 +142,7 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
+# datadog
+!/dd-java-agent.jar
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all,kotlin,gradle
