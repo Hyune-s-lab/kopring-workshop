@@ -38,8 +38,8 @@
 
 ## step 3. handle request body
 
-> HttpServletRequest is an interface which exposes getInputStream()  method to read the body. By default, the data from
-> this InputStream can be read only once.
+> HttpServletRequest is an interface which exposes getInputStream()  method to read the body.  
+> By default, the data from this InputStream can be read only once.
 > - [Reading HttpServletRequest Multiple Times in Spring](https://www.baeldung.com/spring-reading-httpservletrequest-multiple-times)
 
 - `HttpServletRequest` 의 body 는 한번 읽으면 더 이상 읽을 수 없습니다.
