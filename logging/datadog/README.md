@@ -5,7 +5,7 @@
 - http://localhost:8080/swagger-ui/index.html#/
 - datadog/src/test/http-request/TestUtilController.http
 
-## 1. boot with datadog agent
+## step 1. boot with datadog agent
 
 ### add dependency
 

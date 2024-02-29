@@ -21,6 +21,6 @@
 - step 3. add error appender with JsonLayout
 - step 4. using MDC
 
-### datadog
+### [datadog](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/logging/datadog)
 
-...
+- step 1. boot with datadog agent
