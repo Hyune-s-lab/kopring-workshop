@@ -13,6 +13,8 @@
 - step 3. handle request body
 - step 4. using MDC
 - step 5. measure response duration
+- step 6. using MDC with async
+- step 7. using MDC with coroutine
 
 ### [logback](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/logging/logback)
 
