@@ -76,3 +76,8 @@
 
 ![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/92c8190c-1148-4778-9820-82af2903a517)
 
+## step 7. using MDC with coroutine
+
+### call RunException api - coroutine 만 설정
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/458d49b2-faf5-414a-b6b3-1c6632128a96)

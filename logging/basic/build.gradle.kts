@@ -6,6 +6,9 @@ dependencies {
 
     val springdocOpenapi: String by project
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocOpenapi}")
+
+    val coroutineVersion: String by project
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}")
 }
 
 tasks.getByName("bootJar") {
