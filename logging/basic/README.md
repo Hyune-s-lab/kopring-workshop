@@ -17,7 +17,7 @@
 - `preHandle -> postHandle -> afterCompletion` 과정을 통해 로깅을 할 수 있습니다.
 - request, response 접근도 가능 합니다.
 
-### `run exception` api 실행시
+### call RunException api
 
 > preHandle -> afterCompletion -> error!  
 > -> preHandle -> postHandle -> afterCompletion
@@ -28,7 +28,7 @@
 
 ## step 2. add RestControllerAdvice
 
-### `run exception` api 실행시
+### call RunException api
 
 > preHandle -> error! handled -> afterCompletion
 
@@ -57,3 +57,34 @@
     - 필요에 따라 slow api 를 감지할 수도 있습니다.
 - 더 표준적인 방법은 metrics 를 활용하는 것 입니다.
     - [Metrics for Your Spring REST API](https://www.baeldung.com/spring-rest-api-metrics)
+
+## step 6. using MDC with async
+
+> - [@Async 비동기 멀티스레드 사용법](https://cano721.tistory.com/208)
+> - [Creating Asynchronous Methods
+    ](https://spring.io/guides/gs/async-method)
+> - [표준 예외 처리에서 로깅까지 (2)](https://hyune-c.tistory.com/20)
+
+### call RunException api - async 만 설정
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/b88dc8e6-3d6b-412f-9ca6-855dbbf76565)
+
+- 실무에서는 async 전용 thread pool 을 설정하는 것을 권장 합니다.
+    - default `SimpleAsyncTaskExecutor`
+
+### call RunException api - CustomTaskDecorator 설정
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/92c8190c-1148-4778-9820-82af2903a517)
+
+## step 7. using MDC with coroutine
+
+> - [kotlin official document](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-slf4j/kotlinx.coroutines.slf4j/-m-d-c-context/)
+> - [코루틴 내부로 Tracing Context 공유하기](https://jaeyeong951.medium.com/%EC%BD%94%EB%A3%A8%ED%8B%B4-%EB%82%B4%EB%B6%80-tracing-context-%EA%B3%B5%EC%9C%A0-afc2f4bd422c)
+
+### call RunException api - coroutine 만 설정
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/458d49b2-faf5-414a-b6b3-1c6632128a96)
+
+### call RunException api - slf4j dependency 추가
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/db6cc85e-6b7f-462f-92bd-7bc7b0384a07)

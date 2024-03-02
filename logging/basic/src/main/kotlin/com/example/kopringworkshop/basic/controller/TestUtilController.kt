@@ -1,6 +1,12 @@
 package com.example.kopringworkshop.basic.controller
 
+import com.example.kopringworkshop.basic.service.AsyncRunExceptionService
+import com.example.kopringworkshop.basic.service.CoroutineRunExceptionService
 import io.swagger.v3.oas.annotations.Operation
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.slf4j.MDCContext
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import org.slf4j.event.Level
@@ -12,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class TestUtilController {
+class TestUtilController(
+    private val asyncRunExceptionService: AsyncRunExceptionService,
+    private val coroutineRunExceptionService: CoroutineRunExceptionService,
+) {
     private val log = LoggerFactory.getLogger(this::class.java)
 
     @Operation(summary = "run exception")
@@ -24,6 +33,30 @@ class TestUtilController {
             BAD_REQUEST.value() -> throw IllegalArgumentException(message)
             CONFLICT.value()    -> throw IllegalStateException(message)
             else                -> throw RuntimeException(message)
+        }
+    }
+
+    @Operation(summary = "run exception - async")
+    @PostMapping("/test-util/run-exception/async")
+    fun asyncRunException(@RequestBody request: RunExceptionRequest) {
+        val message = "call run exception api: status=${request.statusCode}"
+
+        log.info("### call async run exception api")
+        log.info("### 요청이 들어온 스레드 mdc=${MDC.getCopyOfContextMap()}")
+
+        asyncRunExceptionService.runException(request.statusCode, message)
+    }
+
+    @Operation(summary = "run exception - coroutine")
+    @PostMapping("/test-util/run-exception/coroutine")
+    fun coroutineRunException(@RequestBody request: RunExceptionRequest) {
+        val message = "call run exception api: status=${request.statusCode}"
+
+        log.info("### call coroutine run exception api")
+        log.info("### 요청이 들어온 스레드 mdc=${MDC.getCopyOfContextMap()}")
+
+        CoroutineScope(Dispatchers.Default).launch(MDCContext()) {
+            coroutineRunExceptionService.runException(request.statusCode, message)
         }
     }
 

@@ -8,6 +8,28 @@ x-user-id: x-test-id
   "message": "test message"
 }
 
+
+### async run exception
+POST {{host}}/test-util/run-exception/async
+Content-Type: application/json
+x-user-id: x-test-id
+
+{
+  "statusCode": 500,
+  "message": "test message"
+}
+
+### coroutine run exception
+POST {{host}}/test-util/run-exception/coroutine
+Content-Type: application/json
+x-user-id: x-test-id
+
+{
+  "statusCode": 500,
+  "message": "test message"
+}
+
+
 ### run logging
 POST {{host}}/test-util/run-logging?level=ERROR&extra1=hihihi
 Content-Type: application/json
