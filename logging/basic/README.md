@@ -63,6 +63,7 @@
 > - [@Async 비동기 멀티스레드 사용법](https://cano721.tistory.com/208)
 > - [Creating Asynchronous Methods
     ](https://spring.io/guides/gs/async-method)
+> - [표준 예외 처리에서 로깅까지 (2)](https://hyune-c.tistory.com/20)
 
 ### call RunException api - async 만 설정
 
@@ -70,3 +71,8 @@
 
 - 실무에서는 async 전용 thread pool 을 설정하는 것을 권장 합니다.
     - default `SimpleAsyncTaskExecutor`
+
+### call RunException api - CustomTaskDecorator 설정
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/92c8190c-1148-4778-9820-82af2903a517)
+
