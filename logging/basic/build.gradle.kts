@@ -9,6 +9,7 @@ dependencies {
 
     val coroutineVersion: String by project
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:${coroutineVersion}")
 }
 
 tasks.getByName("bootJar") {

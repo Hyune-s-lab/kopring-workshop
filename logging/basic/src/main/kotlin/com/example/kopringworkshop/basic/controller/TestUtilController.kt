@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.Operation
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.slf4j.MDCContext
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import org.slf4j.event.Level
@@ -54,7 +55,7 @@ class TestUtilController(
         log.info("### call coroutine run exception api")
         log.info("### 요청이 들어온 스레드 mdc=${MDC.getCopyOfContextMap()}")
 
-        CoroutineScope(Dispatchers.Default).launch {
+        CoroutineScope(Dispatchers.Default).launch(MDCContext()) {
             coroutineRunExceptionService.runException(request.statusCode, message)
         }
     }

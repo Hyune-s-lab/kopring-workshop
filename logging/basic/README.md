@@ -78,6 +78,13 @@
 
 ## step 7. using MDC with coroutine
 
+> - [kotlin official document](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-slf4j/kotlinx.coroutines.slf4j/-m-d-c-context/)
+> - [코루틴 내부로 Tracing Context 공유하기](https://jaeyeong951.medium.com/%EC%BD%94%EB%A3%A8%ED%8B%B4-%EB%82%B4%EB%B6%80-tracing-context-%EA%B3%B5%EC%9C%A0-afc2f4bd422c)
+
 ### call RunException api - coroutine 만 설정
 
 ![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/458d49b2-faf5-414a-b6b3-1c6632128a96)
+
+### call RunException api - slf4j dependency 추가
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/db6cc85e-6b7f-462f-92bd-7bc7b0384a07)
