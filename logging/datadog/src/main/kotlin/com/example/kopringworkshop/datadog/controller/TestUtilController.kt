@@ -3,6 +3,7 @@ package com.example.kopringworkshop.datadog.controller
 import com.example.kopringworkshop.datadog.service.CoroutineRunExceptionService
 import datadog.trace.api.CorrelationIdentifier
 import io.swagger.v3.oas.annotations.Operation
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,9 +46,13 @@ class TestUtilController(
         log.info("### 요청이 들어온 스레드 mdc=${MDC.getCopyOfContextMap()}, traceId=${CorrelationIdentifier.getTraceId()}")
 
         //        CoroutineScope(Dispatchers.Default).launch(MDCContext()) {
-        CoroutineScope(Dispatchers.Default).launch {
+        CoroutineScope(Dispatchers.Default + exceptionHandler()).launch {
             coroutineRunExceptionService.runException(request.statusCode, message)
         }
+    }
+
+    private fun exceptionHandler(): CoroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+        log.error("### exception handled mdc=${MDC.getCopyOfContextMap()}, traceId=${CorrelationIdentifier.getTraceId()}, exception=$exception")
     }
 
     @Operation(summary = "run logging")
