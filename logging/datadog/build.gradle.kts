@@ -4,6 +4,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+    val coroutineVersion: String by project
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:${coroutineVersion}")
+
     val logbackVersion: String by project
     implementation("ch.qos.logback.contrib:logback-json-classic:${logbackVersion}")
     implementation("ch.qos.logback.contrib:logback-jackson:${logbackVersion}")

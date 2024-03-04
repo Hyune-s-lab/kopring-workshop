@@ -42,3 +42,10 @@ Connection: close
   "traceId": "3742834624401928357"
 }
 ```
+
+## step 2. using coroutine
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/00483393-0b09-47e9-8bc1-752056542f1b)
+
+- 별도의 작업을 하지 않아도 datadog 정보는 coroutine 에서도 잘 나옵니다.
+    - MDC 정보는 전파되지 않습니다.

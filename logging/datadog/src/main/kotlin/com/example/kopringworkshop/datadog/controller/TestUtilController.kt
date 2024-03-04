@@ -1,6 +1,11 @@
 package com.example.kopringworkshop.datadog.controller
 
+import com.example.kopringworkshop.datadog.service.CoroutineRunExceptionService
+import datadog.trace.api.CorrelationIdentifier
 import io.swagger.v3.oas.annotations.Operation
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import org.slf4j.event.Level
@@ -12,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class TestUtilController {
+class TestUtilController(
+    private val coroutineRunExceptionService: CoroutineRunExceptionService,
+) {
     private val log = LoggerFactory.getLogger(this::class.java)
 
     @Operation(summary = "run exception")
@@ -24,6 +31,22 @@ class TestUtilController {
             BAD_REQUEST.value() -> throw IllegalArgumentException(message)
             CONFLICT.value()    -> throw IllegalStateException(message)
             else                -> throw RuntimeException(message)
+        }
+    }
+
+    @Operation(summary = "run exception - coroutine")
+    @PostMapping("/test-util/run-exception/coroutine")
+    fun coroutineRunException(@RequestBody request: RunExceptionRequest) {
+        val message = "call run exception api: status=${request.statusCode}"
+
+        MDC.put("flag", "put by controller")
+
+        log.info("### call coroutine run exception api")
+        log.info("### 요청이 들어온 스레드 mdc=${MDC.getCopyOfContextMap()}, traceId=${CorrelationIdentifier.getTraceId()}")
+
+        //        CoroutineScope(Dispatchers.Default).launch(MDCContext()) {
+        CoroutineScope(Dispatchers.Default).launch {
+            coroutineRunExceptionService.runException(request.statusCode, message)
         }
     }
 
