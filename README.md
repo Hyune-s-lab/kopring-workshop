@@ -26,3 +26,4 @@
 ### [datadog](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/logging/datadog)
 
 - step 1. boot with datadog agent
+- step 2. using coroutine
