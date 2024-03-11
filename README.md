@@ -4,6 +4,13 @@
 - 대부분의 모듈은 독립 실행이 가능 합니다.
 - step 별로 commit 을 참고하시면 좋습니다.
 
+## web
+
+### [exception](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/web/exception)
+
+- step 1. RestControllerAdvice
+- step 2. handle CustomException
+
 ## logging
 
 ### [basic](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/logging/basic)

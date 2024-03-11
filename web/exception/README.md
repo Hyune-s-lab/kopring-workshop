@@ -26,7 +26,8 @@
 ### NotHandledBusinessException
 
 - 명시적으로 handling 하지 않았기에 부모 클래스인 `BaseException` 에서 handling 됩니다.
-  ![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/5a3d613d-e90d-4c75-9369-4650dd120ef9)
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/5a3d613d-e90d-4c75-9369-4650dd120ef9)
 
 ### 더 디테일한 예외 처리
 
