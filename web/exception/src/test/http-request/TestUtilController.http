@@ -18,6 +18,26 @@ x-user-id: x-test-id
   "message": "test message"
 }
 
+### run exception - HANDLED_BUSINESS
+POST {{host}}/test-util/run-exception
+Content-Type: application/json
+x-user-id: x-test-id
+
+{
+  "exceptionName": "HANDLED_BUSINESS",
+  "message": "test message"
+}
+
+### run exception - NOT_HANDLED_BUSINESS
+POST {{host}}/test-util/run-exception
+Content-Type: application/json
+x-user-id: x-test-id
+
+{
+  "exceptionName": "NOT_HANDLED_BUSINESS",
+  "message": "test message"
+}
+
 ### run exception - ELSE
 POST {{host}}/test-util/run-exception
 Content-Type: application/json

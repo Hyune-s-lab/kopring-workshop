@@ -1,10 +1,13 @@
 package com.example.kopringworkshop.exception.support
 
+import com.example.kopringworkshop.exception.support.exception.BaseException
+import com.example.kopringworkshop.exception.support.exception.HandledBusinessException
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonInclude
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus.BAD_REQUEST
+import org.springframework.http.HttpStatus.CONFLICT
 import org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR
 import org.springframework.web.ErrorResponse
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -29,6 +32,22 @@ class ApiControllerAdvice {
     @ExceptionHandler(IllegalStateException::class)
     fun handleIllegalStateException(e: IllegalStateException): ErrorResponse {
         return ErrorResponse(code = e.javaClass.simpleName, message = e.message).also {
+            errorLogging(e)
+        }
+    }
+
+    @ResponseStatus(CONFLICT)
+    @ExceptionHandler(HandledBusinessException::class)
+    fun handleHandledBusinessException(e: HandledBusinessException): ErrorResponse {
+        return ErrorResponse(code = e.javaClass.simpleName, message = e.message).also {
+            errorLogging(e)
+        }
+    }
+
+    @ResponseStatus(CONFLICT)
+    @ExceptionHandler(BaseException::class)
+    fun handleBaseException(e: BaseException): ErrorResponse {
+        return ErrorResponse(code = e.javaClass.simpleName, message = "${e.message}, handled: BaseException").also {
             errorLogging(e)
         }
     }

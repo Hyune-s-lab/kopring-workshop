@@ -1,5 +1,7 @@
 package com.example.kopringworkshop.exception.controller
 
+import com.example.kopringworkshop.exception.support.exception.HandledBusinessException
+import com.example.kopringworkshop.exception.support.exception.NotHandledBusinessException
 import io.swagger.v3.oas.annotations.Operation
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,9 +16,11 @@ class TestUtilController {
     @PostMapping("/test-util/run-exception")
     fun runException(@RequestBody request: RunExceptionRequest) {
         when (request.exceptionName) {
-            "ILLEGAL_ARGUMENT" -> throw IllegalArgumentException(request.message)
-            "ILLEGAL_STATE"    -> throw IllegalStateException(request.message)
-            else               -> throw RuntimeException(request.message)
+            "ILLEGAL_ARGUMENT"     -> throw IllegalArgumentException(request.message)
+            "ILLEGAL_STATE"        -> throw IllegalStateException(request.message)
+            "HANDLED_BUSINESS"     -> throw HandledBusinessException(request.message)
+            "NOT_HANDLED_BUSINESS" -> throw NotHandledBusinessException(request.message)
+            else                   -> throw RuntimeException(request.message)
         }
     }
 

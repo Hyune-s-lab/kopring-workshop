@@ -16,3 +16,19 @@
 
 - default 로직에서 잡히긴 하지만 권장하지 않습니다.
 - `@ExceptionHandler(Exception::class)` 선언으로 최상위 예외 처리를 권장 합니다.
+
+## step 2. handle CustomException
+
+### HandledBusinessException
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/63168dab-fa65-4c77-8286-357d5d89e215)
+
+### NotHandledBusinessException
+
+- 명시적으로 handling 하지 않았기에 부모 클래스인 `BaseException` 에서 handling 됩니다.
+  ![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/5a3d613d-e90d-4c75-9369-4650dd120ef9)
+
+### 더 디테일한 예외 처리
+
+- [ExceptionHandlers](https://github.com/Hyune-c/traveler-mileage-service/blob/master/src/main/java/com/example/travelermileageservice/config/exception/handler/ExceptionHandlers.java)
+- [ErrorResponse](https://github.com/Hyune-c/traveler-mileage-service/blob/master/src/main/java/com/example/travelermileageservice/config/exception/ErrorResponse.java)
