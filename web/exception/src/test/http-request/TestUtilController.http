@@ -1,0 +1,29 @@
+### run exception - ILLEGAL_ARGUMENT
+POST {{host}}/test-util/run-exception
+Content-Type: application/json
+x-user-id: x-test-id
+
+{
+  "exceptionName": "ILLEGAL_ARGUMENT",
+  "message": "test message"
+}
+
+### run exception - ILLEGAL_STATE
+POST {{host}}/test-util/run-exception
+Content-Type: application/json
+x-user-id: x-test-id
+
+{
+  "exceptionName": "ILLEGAL_STATE",
+  "message": "test message"
+}
+
+### run exception - ELSE
+POST {{host}}/test-util/run-exception
+Content-Type: application/json
+x-user-id: x-test-id
+
+{
+  "exceptionName": "ELSE",
+  "message": "test message"
+}
