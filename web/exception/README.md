@@ -5,6 +5,22 @@
 - http://localhost:8080/swagger-ui/index.html#/
 - /src/test/http-request/TestUtilController.http
 
+### ProblemDetail
+
+> spring 6 부터 표준 에러 응답 객체로 ProblemDetail 이 추가 되었습니다.
+
+- [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807)
+
+```json
+{
+  "type": "about:blank",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "에러 설명 메시지",
+  "instance": "/problemDetailTest"
+}
+```
+
 ## step 1. RestControllerAdvice
 
 - servlet request 는 하나의 thread 로 처리 됩니다.
