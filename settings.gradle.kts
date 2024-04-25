@@ -7,5 +7,7 @@ include(
     "logging:logback",
     "logging:datadog",
 
+    "db:mongodb",
+
     "common",
 )
