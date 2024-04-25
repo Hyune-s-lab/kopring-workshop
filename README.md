@@ -30,6 +30,12 @@
 - step 3. add error appender with JsonLayout
 - step 4. using MDC
 
+### database/mongodb
+
+- step 0. set mongodb with local docker
+- step 1. db connect
+- step 2. embedded db connect for test
+
 ### [datadog](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/logging/datadog)
 
 - step 1. boot with datadog agent
