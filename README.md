@@ -34,7 +34,7 @@
 
 - step 0. set mongodb with local docker
 - step 1. repository save & find
-- step 2. embedded db connect for test
+- step 2. set testcontainers for test
 
 ### [datadog](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/logging/datadog)
 

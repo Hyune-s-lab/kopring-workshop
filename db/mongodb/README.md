@@ -18,6 +18,6 @@ GET {{host}}/person
 
 <img width="1248" alt="image" src="https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/5f1573a5-0b6a-4f60-91cb-980bdab28765">
 
-## step 2. embedded db connect for test
+## step 2. set testcontainers for test
 
-...
+<img width="1148" alt="image" src="https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/3843d519-ddd9-42b0-9dc3-0cf57e1f6694">

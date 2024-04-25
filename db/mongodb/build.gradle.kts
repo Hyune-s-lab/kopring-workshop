@@ -13,6 +13,11 @@ dependencies {
 
     val mongodbVersion: String by project
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+
+    val testcontainersVersion: String by project
+    testImplementation("org.testcontainers:testcontainers:${testcontainersVersion}")
+    testImplementation("org.testcontainers:junit-jupiter:${testcontainersVersion}")
+    testImplementation("org.testcontainers:mongodb:${testcontainersVersion}")
 }
 
 tasks.getByName("bootJar") {
