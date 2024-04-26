@@ -30,13 +30,16 @@
 - step 3. add error appender with JsonLayout
 - step 4. using MDC
 
+### [datadog](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/logging/datadog)
+
+- step 1. boot with datadog agent
+- step 2. using coroutine
+
+## database
+
 ### [database/mongodb](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/db/mongodb)
 
 - step 0. set mongodb with local docker
 - step 1. repository save & find
 - step 2. set testcontainers for test
 
-### [datadog](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/logging/datadog)
-
-- step 1. boot with datadog agent
-- step 2. using coroutine
