@@ -37,7 +37,7 @@
 
 ## database
 
-### [database/mongodb](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/db/mongodb)
+### [mongodb](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/db/mongodb)
 
 - step 0. set mongodb with local docker
 - step 1. repository save & find
