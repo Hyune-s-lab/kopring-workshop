@@ -9,5 +9,7 @@ include(
 
     "db:mongodb",
 
+    "test:testcontainers",
+
     "common",
 )
