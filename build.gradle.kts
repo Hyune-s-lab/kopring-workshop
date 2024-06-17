@@ -8,6 +8,8 @@ plugins {
     kotlin("plugin.spring") version "1.9.22"
     kotlin("kapt") version "1.9.22"
 
+    kotlin("plugin.jpa") version "1.9.22"
+
     kotlin("plugin.serialization") version "1.9.22"
 }
 

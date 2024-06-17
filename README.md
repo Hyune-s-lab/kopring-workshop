@@ -43,3 +43,10 @@
 - step 1. repository save & find
 - step 2. set testcontainers for test
 
+## test
+
+### [testcontainers](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/test/testcontainers)
+
+- step 1. apply mysql testcontainers to local, test profile
+- step 2. apply redis testcontainers to local, test profile
+- step 3. apply kafka testcontainers to local, test profile
