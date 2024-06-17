@@ -9,4 +9,10 @@ class DummyTest: AbstractUrlShortenerApiApplicationTests() {
         println("mysqlContainer.username = ${mysqlContainer.username}")
         println("mysqlContainer.password = ${mysqlContainer.password}")
     }
+
+    @Test
+    fun `redis information`() {
+        println("redisContainer.host = ${redisContainer.host}")
+        println("redisContainer.firstMappedPort = ${redisContainer.firstMappedPort}")
+    }
 }
