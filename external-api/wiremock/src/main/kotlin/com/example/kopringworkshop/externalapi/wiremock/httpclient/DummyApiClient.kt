@@ -12,4 +12,7 @@ interface DummyApiClient {
 
     @RequestMapping(method = [RequestMethod.GET], value = ["/movies/{movieId}"], produces = ["application/json"])
     fun getMovieById(@PathVariable movieId: Long): Any
+
+    @RequestMapping(method = [RequestMethod.GET], value = ["/movies/{movieId}/4sec"], produces = ["application/json"])
+    fun getMovieByIdMockDelay4sec(@PathVariable movieId: Long): Any
 }

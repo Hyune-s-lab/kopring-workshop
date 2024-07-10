@@ -10,4 +10,6 @@
 
 ![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/56688164-cd14-421a-9301-8e14244d7a8f)
 
-## step 3. test timeout - connection timeout, read timeout
+## step 3. test read-timeout
+
+![image](https://github.com/Hyune-s-lab/kopring-workshop/assets/55722186/b1355201-7860-40d4-b556-95ef07bc0489)

@@ -11,5 +11,6 @@ spring:
           dummy-api:
             url: http://localhost:${wiremock.server.port}
             loggerLevel: full
+            read-timeout: 2000
           default:
             loggerLevel: basic
