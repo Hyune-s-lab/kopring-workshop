@@ -1,9 +1,7 @@
-spring:
-  profiles:
-    default: local
-
----
-spring.config.activate.on-profile: local
+logging:
+  level:
+    root: info
+    com.example: debug
 
 spring:
   cloud:
@@ -12,6 +10,6 @@ spring:
         config:
           dummy-api:
             url: https://dummyapi.online/api
-            loggerLevel: basic
+            loggerLevel: full
           default:
-            loggerLevel: none
+            loggerLevel: basic
