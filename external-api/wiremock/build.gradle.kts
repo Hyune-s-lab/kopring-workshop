@@ -5,6 +5,8 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+
+    testImplementation("org.springframework.cloud:spring-cloud-contract-wiremock")
 }
 
 tasks.getByName("bootJar") {

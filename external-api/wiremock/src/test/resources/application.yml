@@ -9,7 +9,7 @@ spring:
       client:
         config:
           dummy-api:
-            url: https://dummyapi.online/api
+            url: http://localhost:${wiremock.server.port}
             loggerLevel: full
           default:
             loggerLevel: basic

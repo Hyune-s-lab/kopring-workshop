@@ -4,6 +4,7 @@ import com.example.kopringworkshop.externalapi.wiremock.AbstractWiremockApplicat
 import io.kotest.matchers.shouldNotBe
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import kotlin.random.Random
 
 class DummyApiClientTest(
     @Autowired private val dummyApiClient: DummyApiClient
@@ -20,7 +21,7 @@ class DummyApiClientTest(
 
     @Test
     fun `getMovieById should return movie by id`() {
-        val movieId = 5L
+        val movieId = Random.nextLong(1, 100)
         val movie = dummyApiClient.getMovieById(movieId)
 
         movie shouldNotBe null
