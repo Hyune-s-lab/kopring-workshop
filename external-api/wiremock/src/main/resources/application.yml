@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    default: local
+
+---
+spring.config.activate.on-profile: local
+
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          dummy-api:
+            url: https://dummyapi.online/api
+            loggerLevel: basic
+          default:
+            loggerLevel: none

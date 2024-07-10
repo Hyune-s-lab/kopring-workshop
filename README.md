@@ -50,3 +50,11 @@
 - step 1. apply mysql testcontainers to local, test profile
 - step 2. apply redis testcontainers to local, test profile
 - step 3. apply kafka testcontainers to local, test profile
+
+## external-api
+
+### [wiremock](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/external-api/wiremock)
+
+- step 1. external api call with openfeign
+- step 2. change external api end-point to wiremock at test profile
+- step 3. test read-timeout

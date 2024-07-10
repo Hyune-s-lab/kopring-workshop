@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "3.2.3"
+    id("org.springframework.boot") version "3.3.0"
     id("io.spring.dependency-management") version "1.1.4"
 
     kotlin("jvm") version "1.9.22"
@@ -39,6 +39,14 @@ subprojects {
 
     apply(plugin = "kotlinx-serialization")
 
+    val springCloudVersion: String by project
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
+        }
+    }
+
     dependencies {
         implementation("org.springframework.boot:spring-boot-starter")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -51,6 +59,16 @@ subprojects {
 
         annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
         kapt("org.springframework.boot:spring-boot-configuration-processor")
+
+        // kotest
+        val kotestVersion: String by project
+        val kotestExtVersion: String by project
+
+        testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+        testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
+        testImplementation("io.kotest:kotest-property:$kotestVersion")
+        testImplementation("io.kotest:kotest-extensions-now:${kotestVersion}")
+        implementation("io.kotest.extensions:kotest-extensions-spring:$kotestExtVersion")
     }
 
     tasks.withType<KotlinCompile> {

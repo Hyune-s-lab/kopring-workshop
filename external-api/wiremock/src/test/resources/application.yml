@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: info
+    com.example: debug
+
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          dummy-api:
+            url: http://localhost:${wiremock.server.port}
+            loggerLevel: full
+            read-timeout: 2000
+          default:
+            loggerLevel: basic

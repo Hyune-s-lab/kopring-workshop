@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/movies/[0-9]+/4sec"
+  },
+  "response": {
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "status": 200,
+    "fixedDelayMilliseconds": 4000,
+    "jsonBody": {
+      "id": 1,
+      "movie": "The Shawshank Redemption",
+      "rating": 9.2,
+      "image": "images/shawshank.jpg",
+      "imdb_url": "https://www.imdb.com/title/tt0111161/"
+    }
+  }
+}
