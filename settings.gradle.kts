@@ -11,5 +11,7 @@ include(
 
     "test:testcontainers",
 
+    "external-api:wiremock",
+
     "common",
 )
