@@ -43,6 +43,13 @@
 - step 1. repository save & find
 - step 2. set testcontainers for test
 
+### [mysqldb](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/db/mysqldb)
+
+- step 1. set mysql with testcontainers
+- step 2. set transactional logging
+- step 3. set p6spy for logging
+- step 4. set querydsl
+
 ## test
 
 ### [testcontainers](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/test/testcontainers)

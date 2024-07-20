@@ -8,6 +8,7 @@ include(
     "logging:datadog",
 
     "db:mongodb",
+    "db:mysqldb",
 
     "test:testcontainers",
 
