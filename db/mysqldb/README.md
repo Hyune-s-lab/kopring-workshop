@@ -24,4 +24,8 @@
 
 ## step 4. set querydsl
 
-...
+![image](https://github.com/user-attachments/assets/7321fb5e-b70c-4b62-900e-1c1b77a8cff3)
+
+- `Tasks - other - compileKotlin` 실행시 Q class 가 생성 됩니다.
+
+![image](https://github.com/user-attachments/assets/8b3f3b0e-7c41-4f54-9787-ae8a22831c06)

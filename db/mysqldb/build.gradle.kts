@@ -17,6 +17,10 @@ dependencies {
     val p6spyVersion: String by project
     implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:${p6spyVersion}")
 
+    val querydslVersion: String by project
+    implementation("com.querydsl:querydsl-jpa:${querydslVersion}:jakarta")
+    kapt("com.querydsl:querydsl-apt:${querydslVersion}:jakarta")
+
     val testcontainersVersion: String by project
     implementation("org.testcontainers:testcontainers:${testcontainersVersion}")
     implementation("org.testcontainers:junit-jupiter:${testcontainersVersion}")

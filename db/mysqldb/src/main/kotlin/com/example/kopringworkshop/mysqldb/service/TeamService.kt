@@ -2,6 +2,7 @@ package com.example.kopringworkshop.mysqldb.service
 
 import com.example.kopringworkshop.mysqldb.dto.TeamDto
 import com.example.kopringworkshop.mysqldb.entity.Team
+import com.example.kopringworkshop.mysqldb.repository.TeamQuerydslRepository
 import com.example.kopringworkshop.mysqldb.repository.TeamRepository
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Service
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 class TeamService(
     private val teamRepository: TeamRepository,
+    private val teamQuerydslRepository: TeamQuerydslRepository
 ) {
     fun createTeam(teamDto: TeamDto): Team {
         val team = Team(
@@ -22,6 +24,11 @@ class TeamService(
     @Transactional(readOnly = true)
     fun getTeam(id: Long): Team {
         return teamRepository.findById(id).orElseThrow { EntityNotFoundException("Team not found") }
+    }
+
+    @Transactional(readOnly = true)
+    fun getTeamByName(name: String): Team {
+        return teamQuerydslRepository.findByName(name) ?: throw EntityNotFoundException("Team not found")
     }
 
     fun updateTeam(id: Long, teamDto: TeamDto): Team {
