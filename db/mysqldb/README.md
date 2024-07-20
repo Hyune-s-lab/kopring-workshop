@@ -18,7 +18,9 @@
 
 ## step 3. set p6spy for logging
 
-...
+![image](https://github.com/user-attachments/assets/02d41b77-ee00-49e6-bb92-93a2962d7cbd)
+
+- `show-sql: true` 를 지우고 사용하는 것을 추천 합니다.
 
 ## step 4. set querydsl
 

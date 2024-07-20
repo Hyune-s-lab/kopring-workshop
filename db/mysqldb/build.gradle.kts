@@ -14,6 +14,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     runtimeOnly("com.mysql:mysql-connector-j")
 
+    val p6spyVersion: String by project
+    implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:${p6spyVersion}")
+
     val testcontainersVersion: String by project
     implementation("org.testcontainers:testcontainers:${testcontainersVersion}")
     implementation("org.testcontainers:junit-jupiter:${testcontainersVersion}")
