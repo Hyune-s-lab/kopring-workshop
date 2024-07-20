@@ -60,6 +60,13 @@ subprojects {
         annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
         kapt("org.springframework.boot:spring-boot-configuration-processor")
 
+        val coroutineVersion: String by project
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:${coroutineVersion}")
+
+        val datafakerVersion: String by project
+        implementation("net.datafaker:datafaker:$datafakerVersion")
+
         // kotest
         val kotestVersion: String by project
         val kotestExtVersion: String by project
