@@ -14,6 +14,10 @@ spring:
         username: ${JDBC_USERNAME}
         password: ${JDBC_PASSWORD}
 
+logging:
+    #    level.org.springframework.transaction.interceptor: TRACE
+    level.org.springframework.orm.jpa: DEBUG
+
 ---
 spring.config.activate.on-profile: test
 
