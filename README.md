@@ -56,7 +56,8 @@
 
 - step 1. init member 5만명 - using jpa
 - step 2. init member 100만명 - using jdbc multiline insert
-- step n. quartz scheduler, spring batch
+- step 3. 기존 약관에 동의된 유저들에게 알림
+- step n. quartz scheduler, spring batch ...
 
 ## test
 

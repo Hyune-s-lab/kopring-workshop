@@ -27,6 +27,10 @@
 - 100만명 멤버 생성 5678 ms
 - 60만명 약관 동의 8599 ms
 
+## step 3. 기존 약관에 동의된 유저들에게 알림
+
+...
+
 ## step n. quartz scheduler, spring batch
 
 ...
