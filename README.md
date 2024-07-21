@@ -1,7 +1,7 @@
 # kopring-workshop
 
 - 대부분의 모듈은 kotlin + spring + web application 베이스로 구성되어 있습니다.
-- 대부분의 모듈은 독립 실행이 가능 합니다.
+- 대부분의 모듈은 독립 실행이 가능 합니다. (local profile)
 - step 별로 commit 을 참고하시면 좋습니다.
 
 ## web
