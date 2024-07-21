@@ -10,6 +10,8 @@ include(
     "db:mongodb",
     "db:mysqldb",
 
+    "batch:scenario1",
+
     "test:testcontainers",
 
     "external-api:wiremock",

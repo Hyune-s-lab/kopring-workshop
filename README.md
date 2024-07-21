@@ -50,6 +50,14 @@
 - step 3. set p6spy for logging
 - step 4. set querydsl
 
+## batch
+
+### [scenario1](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/batch/scenario1)
+
+- step 1. init member 5만명 - using jpa
+- step 2. init member 100만명 - using jdbc multiline insert
+- step n. quartz scheduler, spring batch
+
 ## test
 
 ### [testcontainers](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/test/testcontainers)
