@@ -24,7 +24,7 @@ class TestContainerConfig {
 
         init {
             mysqlContainer.start()
-            System.setProperty("spring.datasource.url", mysqlContainer.jdbcUrl)
+            System.setProperty("spring.datasource.url", mysqlContainer.jdbcUrl + "?&rewriteBatchedStatements=true")
             System.setProperty("spring.datasource.username", mysqlContainer.username)
             System.setProperty("spring.datasource.password", mysqlContainer.password)
         }

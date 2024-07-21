@@ -13,3 +13,20 @@
 - jpa 를 사용하여 모두 단일 쿼리로 처리
     - 5만명 멤버 생성 10417 ms
     - 3만명 약관 동의 13090 ms
+
+## step 2. init member 100만명 - using jdbc bulk insert
+
+![image](https://github.com/user-attachments/assets/5b4de84d-446f-4648-acbb-9df8a797c701)
+
+- jdbc.bulkUpdate 를 사용하여 멤버 생성 및 약관 동의 처리
+    - 5만명 멤버 생성 328 ms - 96% 감소
+    - 3만명 약관 동의 442 ms - 96% 감소
+
+![image](https://github.com/user-attachments/assets/8aba00c0-4d2d-4d57-b59f-97751c9b3c9e)
+
+- 100만명 멤버 생성 5678 ms
+- 60만명 약관 동의 8599 ms
+
+## step n. quartz scheduler, spring batch
+
+...
