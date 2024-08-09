@@ -19,8 +19,8 @@ class LocalDataInit(
 ) {
     private val faker: Faker = Faker()
 
-    private val memberCount = 1000000
-    private val agreedMemberCount = 600000
+    private val memberCount = 10000
+    private val agreedMemberCount = 6000
 
     @PostConstruct
     fun localDataInit() {
