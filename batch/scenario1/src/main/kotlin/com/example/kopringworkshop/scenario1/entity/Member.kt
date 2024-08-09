@@ -5,6 +5,7 @@ import jakarta.persistence.*
 @Entity
 class Member(
     val name: String,
+    val email: String,
 
     @ElementCollection
     val termOfServiceAgreeds: MutableSet<TermOfServiceAgreed> = mutableSetOf(),

@@ -17,9 +17,9 @@ class BatchJobComponent(
         val dbJob1StartAt = LocalDateTime.now()
         log.debug("### start local data init: job1")
 
-        val sql = "INSERT INTO member (name) VALUES (?)"
+        val sql = "INSERT INTO member (name, email) VALUES (?, ?)"
         val batchArgs = members.map { member ->
-            arrayOf<Any>(member.name)
+            arrayOf<Any>(member.name, member.email)
         }
 
         jdbcTemplate.batchUpdate(sql, batchArgs)

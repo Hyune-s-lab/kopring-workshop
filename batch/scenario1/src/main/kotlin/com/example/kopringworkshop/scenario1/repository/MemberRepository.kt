@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface MemberRepository : JpaRepository<Member, Long> {
     fun countByTermOfServiceAgreedsContaining(termOfServiceAgreed: TermOfServiceAgreed): Long
+    fun findAllByTermOfServiceAgreedsContaining(termOfServiceAgreed: TermOfServiceAgreed): List<Member>
 }

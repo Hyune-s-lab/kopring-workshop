@@ -19,13 +19,15 @@ class LocalDataInit(
 ) {
     private val faker: Faker = Faker()
 
-    private val memberCount = 1000000
-    private val agreedMemberCount = 600000
+    private val memberCount = 10000
+    private val agreedMemberCount = 6000
 
     @PostConstruct
     fun localDataInit() {
         // 1. member 생성
-        val members = (1..memberCount).map { Member(faker.name().fullName()) }
+        val members = (1..memberCount).map {
+            Member(name = faker.name().fullName(), email = faker.internet().emailAddress())
+        }
         val job1DurationPair = batchJobComponent.job1(members)
 
         // 2. 생성된 member 중 일부를 약관 동의

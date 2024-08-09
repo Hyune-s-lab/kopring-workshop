@@ -29,7 +29,19 @@
 
 ## step 3. 기존 약관에 동의된 유저들에게 알림
 
-...
+> 빠른 테스트를 위해 전체 1만명을 기준으로 진행 합니다.
+
+![image](https://github.com/user-attachments/assets/c224cd63-54fe-4be1-81ed-ae4fc42be740)
+
+- 1만명 중 6천명에게 알림 전송: 5121 ms
+- coroutine count 는 default 인 64 를 기반으로 실행
+
+![image](https://github.com/user-attachments/assets/378dcb52-c143-4e6e-8231-02678e5b58ed)
+
+- 1만명 중 6천명에게 알림 전송: 364 ms
+- coroutine limitedParallelism 적용
+    - `Dispatchers.IO.limitedParallelism(10)`
+    - 가벼운 job 에만 사용되어야 하며 충분한 테스트가 필요한 설정
 
 ## step n. quartz scheduler, spring batch
 
