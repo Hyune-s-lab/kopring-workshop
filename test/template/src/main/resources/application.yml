@@ -1,0 +1,10 @@
+logging:
+    level:
+        root: info
+        com.example: debug
+
+---
+spring.config.activate.on-profile: local
+
+---
+spring.config.activate.on-profile: test

@@ -13,6 +13,7 @@ include(
     "batch:scenario1",
 
     "test:testcontainers",
+    "test:template",
 
     "external-api:wiremock",
 

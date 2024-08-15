@@ -67,6 +67,11 @@
 - step 2. apply redis testcontainers to local, test profile
 - step 3. apply kafka testcontainers to local, test profile
 
+### [template](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/test/template)
+
+- WebTestSupport
+- ScenarioTestSupport
+
 ## external-api
 
 ### [wiremock](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/external-api/wiremock)
