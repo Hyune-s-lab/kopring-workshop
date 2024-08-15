@@ -1,17 +1,15 @@
-# kopring-workshop
-
 - 대부분의 모듈은 kotlin + spring + web application 베이스로 구성되어 있습니다.
 - 대부분의 모듈은 독립 실행이 가능 합니다. (local profile)
 - step 별로 commit 을 참고하시면 좋습니다.
 
-## web
+# web
 
 ### [exception](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/web/exception)
 
 - step 1. RestControllerAdvice
 - step 2. handle CustomException
 
-## logging
+# logging
 
 ### [basic](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/logging/basic)
 
@@ -35,7 +33,7 @@
 - step 1. boot with datadog agent
 - step 2. using coroutine
 
-## database
+# database
 
 ### [mongodb](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/db/mongodb)
 
@@ -50,7 +48,7 @@
 - step 3. set p6spy for logging
 - step 4. set querydsl
 
-## batch
+# batch
 
 ### [scenario1](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/batch/scenario1)
 
@@ -59,7 +57,7 @@
 - step 3. 기존 약관에 동의된 유저들에게 알림
 - step n. quartz scheduler, spring batch ...
 
-## test
+# test
 
 ### [testcontainers](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/test/testcontainers)
 
@@ -72,7 +70,7 @@
 - WebTestSupport
 - ScenarioTestSupport
 
-## external-api
+# external-api
 
 ### [wiremock](https://github.com/Hyune-s-lab/kopring-workshop/tree/main/external-api/wiremock)
 
